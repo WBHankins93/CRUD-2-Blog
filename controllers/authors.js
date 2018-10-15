@@ -32,6 +32,12 @@ router.post('/', (req, res) => {
       res.redirect('/authors')
     }
   })
+});
+
+router.delete('/:id', (req, res) => {
+  Author.findByIdAndRemove(req.params.id, (err, deleted) => {
+    res.redirect('/authors')
+  })
 })
 
 module.exports = router;
