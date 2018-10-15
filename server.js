@@ -7,6 +7,8 @@ require('./db/db');
 
 const authorsController = require('./controllers/authors');
 
+
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/authors', authorsController)
 
 app.get('/', (req, res) => {
