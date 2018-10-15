@@ -22,6 +22,14 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.get('/:id/edit', (req, res) => {
+  Author.findById(req.params.id, (err, editAuthor) => {
+    res.render('authors/edit.ejs', {
+      author: editAuthor
+    })
+  })
+});
+
 router.post('/', (req, res) => {
   Author.create(req.body, (err, createdAuthor) => {
     console.log(req.body, 'this is req.body');
